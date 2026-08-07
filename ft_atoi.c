@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hciftci <hciftci@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/06 15:08:11 by hciftci           #+#    #+#             */
-/*   Updated: 2026/08/07 21:34:00 by hciftci          ###   ########.fr       */
+/*   Created: 2026/08/07 20:43:21 by hciftci           #+#    #+#             */
+/*   Updated: 2026/08/07 21:39:22 by hciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-//#include <bsd/string.h>
-int main(void)
+
+int	ft_atoi(const char *nptr)
 {
-	char *ad = "   		-4";
-
-	printf("%d \n",ft_atoi(ad));
-	//printf("%s",strnstr(ad,ad2,25));
-
+	int		sign;
+	int		result;
+	size_t	i;
+	
+	sign = 1;
+	result = 0;
+	i = 0;
+	while (nptr[i] == '\t' || nptr[i] == ' ' || nptr[i] == '\f' ||
+			nptr[i] == '\v' || nptr[i] == '\r')
+				i++;
+	
+	while (nptr[i] == '+' || nptr[i] == '-')
+	{
+		sign = sign * -1;
+		i++;
+	}
+	while (ft_isdigit(nptr[i]) && nptr[i] != '\0')
+	{
+		
+		result = (result * 10) + (nptr[i] - '0');
+		i++;
+	}
+	return ( sign * result);
 }
