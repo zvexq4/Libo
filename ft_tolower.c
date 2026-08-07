@@ -6,11 +6,11 @@
 /*   By: hciftci <hciftci@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 18:01:50 by hciftci           #+#    #+#             */
-/*   Updated: 2026/08/03 18:04:54 by hciftci          ###   ########.fr       */
+/*   Updated: 2026/08/06 12:46:28 by hciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int c)
+int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + 32);
