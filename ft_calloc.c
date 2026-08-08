@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hciftci <hciftci@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/06 15:08:11 by hciftci           #+#    #+#             */
-/*   Updated: 2026/08/07 21:34:00 by hciftci          ###   ########.fr       */
+/*   Created: 2026/08/08 15:58:44 by hciftci           #+#    #+#             */
+/*   Updated: 2026/08/08 17:35:53 by hciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-//#include <bsd/string.h>
-int main(void)
+
+void	*ft_calloc(size_t count, size_t size)
 {
-	char *ad = "   		-4";
+	void	*ptr;
 
-	printf("%d \n",ft_atoi(ad));
-	//printf("%s",strnstr(ad,ad2,25));
-
+	if (size != 0 && count > SIZE_MAX / size)
+		return (NULL);
+	ptr = malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, count * size);
+	return (ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: hciftci <hciftci@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:51:01 by hciftci           #+#    #+#             */
-/*   Updated: 2026/08/06 15:41:23 by hciftci          ###   ########.fr       */
+/*   Updated: 2026/08/08 17:34:39 by hciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char		*str;
-	unsigned char	wanted;
-	size_t			i;
+	unsigned char			wanted;
+	size_t					i;
 
 	str = (const unsigned char *)s;
 	wanted = (unsigned char)c;
