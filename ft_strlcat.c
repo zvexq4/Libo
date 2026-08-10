@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hciftci <hciftci@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 21:38:17 by hciftci           #+#    #+#             */
-/*   Updated: 2026/08/08 21:39:44 by hciftci          ###   ########.fr       */
+/*   Created: 2026/08/08 17:51:59 by hciftci           #+#    #+#             */
+/*   Updated: 2026/08/08 21:30:45 by hciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int		sign;
-	int		result;
+	size_t	dst_len;
+	size_t	src_len;
 	size_t	i;
 
-	sign = 1;
-	result = 0;
+	dst_len = 0;
+	while (dst_len < dstsize && dst[dst_len])
+		dst_len++;
+	src_len = ft_strlen(src);
+	if (dst_len == dstsize)
+		return (dstsize + src_len);
 	i = 0;
-	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\n'
-		|| nptr[i] == '\v' || nptr[i] == '\f' || nptr[i] == '\r')
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	while (src[i] && dst_len + i + 1 < dstsize)
 	{
-		if (nptr[i] == '-')
-			sign = -1;
+		dst[dst_len + i] = src[i];
 		i++;
 	}
-	while (ft_isdigit(nptr[i]))
-	{
-		result = (result * 10) + (nptr[i] - '0');
-		i++;
-	}
-	return (sign * result);
+	dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
 }

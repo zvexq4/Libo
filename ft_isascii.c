@@ -6,13 +6,13 @@
 /*   By: hciftci <hciftci@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 15:53:12 by hciftci           #+#    #+#             */
-/*   Updated: 2026/08/03 16:09:04 by hciftci          ###   ########.fr       */
+/*   Updated: 2026/08/08 19:58:54 by hciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	if (c > 0 && c < 127)
+	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }

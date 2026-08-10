@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hciftci <hciftci@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 21:38:17 by hciftci           #+#    #+#             */
-/*   Updated: 2026/08/08 21:39:44 by hciftci          ###   ########.fr       */
+/*   Created: 2026/08/09 02:05:15 by hciftci           #+#    #+#             */
+/*   Updated: 2026/08/09 02:26:39 by hciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	int		sign;
-	int		result;
 	size_t	i;
+	size_t	j;
+	char	*comb;
 
-	sign = 1;
-	result = 0;
+	comb = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!comb)
+		return (NULL);
 	i = 0;
-	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\n'
-		|| nptr[i] == '\v' || nptr[i] == '\f' || nptr[i] == '\r')
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	while (s1[i])
 	{
-		if (nptr[i] == '-')
-			sign = -1;
+		comb[i] = s1[i];
 		i++;
 	}
-	while (ft_isdigit(nptr[i]))
+	j = 0;
+	while (s2[j])
 	{
-		result = (result * 10) + (nptr[i] - '0');
+		comb[i] = s2[j];
 		i++;
+		j++;
 	}
-	return (sign * result);
+	comb[i] = '\0';
+	return (comb);
 }

@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hciftci <hciftci@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 21:38:17 by hciftci           #+#    #+#             */
-/*   Updated: 2026/08/08 21:39:44 by hciftci          ###   ########.fr       */
+/*   Created: 2026/08/09 19:33:16 by hciftci           #+#    #+#             */
+/*   Updated: 2026/08/09 21:57:14 by hciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+static size_t	count_words(const char *s, char c)
 {
-	int		sign;
-	int		result;
 	size_t	i;
+	size_t	count;
 
-	sign = 1;
-	result = 0;
 	i = 0;
-	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\n'
-		|| nptr[i] == '\v' || nptr[i] == '\f' || nptr[i] == '\r')
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	count = 0;
+	while(s[i])
 	{
-		if (nptr[i] == '-')
-			sign = -1;
+		if (s[i] != c)
+		{
+			if(i == 0 && s[i] || s[i -1] == c)
+				count++;
+		}
 		i++;
 	}
-	while (ft_isdigit(nptr[i]))
-	{
-		result = (result * 10) + (nptr[i] - '0');
-		i++;
-	}
-	return (sign * result);
+	return (count);
 }
