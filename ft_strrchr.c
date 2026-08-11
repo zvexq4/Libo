@@ -6,7 +6,7 @@
 /*   By: hciftci <hciftci@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 13:11:43 by hciftci           #+#    #+#             */
-/*   Updated: 2026/08/10 12:49:25 by hciftci          ###   ########.fr       */
+/*   Updated: 2026/08/11 20:45:24 by hciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ char	*ft_strrchr(const char *s, int c)
 		if (s[i] == (char)c)
 			return ((char *)&s[i]);
 		i--;
-	}	
+	}
 	return (NULL);
 }

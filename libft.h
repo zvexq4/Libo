@@ -6,7 +6,7 @@
 /*   By: hciftci <hciftci@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 13:51:03 by hciftci           #+#    #+#             */
-/*   Updated: 2026/08/09 18:59:40 by hciftci          ###   ########.fr       */
+/*   Updated: 2026/08/11 20:46:24 by hciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strjoin(const char *s1, const char *s2);
-char	*ft_strtrim(const char *s1,const char *set);
+char	*ft_strtrim(const char *s1, const char *set);
+char	**ft_split(char const *s, char c);
 
 #endif 
